@@ -1,0 +1,146 @@
+
+/* Import Montserrat font for Figma design */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* Import Figma styles */
+@import './styles/figma-styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Figma-inspired theme - using dark theme for both light and dark mode */
+    --background: 267 96% 7%;
+    --foreground: 0 0% 93%;
+
+    --card: 267 96% 7%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 267 96% 7%;
+    --popover-foreground: 0 0% 93%;
+
+    --primary: 293 100% 64%;
+    --primary-foreground: 267 96% 7%;
+
+    --secondary: 267 73% 22%;
+    --secondary-foreground: 0 0% 93%;
+
+    --muted: 267 30% 15%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 293 100% 64%;
+    --accent-foreground: 0 0% 93%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 93%;
+
+    --border: 267 30% 15%;
+    --input: 267 30% 15%;
+    --ring: 293 100% 64%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 267 73% 22%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 293 100% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 267 30% 15%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 267 30% 15%;
+    --sidebar-ring: 293 100% 64%;
+  }
+
+  .dark {
+    /* Figma-inspired dark theme */
+    --background: 267 96% 7%;
+    --foreground: 0 0% 93%;
+
+    --card: 267 96% 7%;
+    --card-foreground: 0 0% 93%;
+
+    --popover: 267 96% 7%;
+    --popover-foreground: 0 0% 93%;
+
+    --primary: 293 100% 64%;
+    --primary-foreground: 267 96% 7%;
+
+    --secondary: 267 73% 22%;
+    --secondary-foreground: 0 0% 93%;
+
+    --muted: 267 30% 15%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 293 100% 64%;
+    --accent-foreground: 0 0% 93%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 93%;
+
+    --border: 267 30% 15%;
+    --input: 267 30% 15%;
+    --ring: 293 100% 64%;
+    
+    --sidebar-background: 267 73% 22%;
+    --sidebar-foreground: 0 0% 93%;
+    --sidebar-primary: 293 100% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 267 30% 15%;
+    --sidebar-accent-foreground: 0 0% 93%;
+    --sidebar-border: 267 30% 15%;
+    --sidebar-ring: 293 100% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased relative;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/noise.png');
+    background-repeat: repeat;
+    opacity: 0.5;  /* 50% opacity */
+    mix-blend-mode: overlay;  /* Using overlay for better texture visibility */
+    pointer-events: none;
+    z-index: 1;
+}
+
+  body > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .aigree-gradient-bg {
+    @apply bg-gradient-to-b from-aigree-purple-dark to-aigree-purple-medium;
+  }
+
+  .feature-card {
+    @apply rounded-lg bg-black bg-opacity-20 border border-white border-opacity-10 shadow-feature-card backdrop-blur-sm;
+  }
+
+  .purple-glow {
+    @apply after:absolute after:inset-0 after:bg-aigree-pink after:opacity-10 after:blur-xl after:-z-10;
+  }
+  
+  .cta-button-primary {
+    @apply bg-white text-aigree-purple-dark hover:bg-opacity-90 font-medium rounded-full px-6 py-2 transition-all duration-300;
+  }
+  
+  .cta-button-secondary {
+    @apply bg-transparent border border-white text-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full px-6 py-2 transition-all duration-300;
+  }
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
