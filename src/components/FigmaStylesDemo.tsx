@@ -1,7 +1,7 @@
 import React from 'react';
 import { figmaClasses } from '@/lib/figma-classes';
 import blueLaptopUser from '@/assets/blue_laptop_user.webp';
-import cavernBackground from '@/assets/mono_light_distortion_2.jpeg';
+import cavernBackground from '@/assets/moonrise.png';
 
 export const FigmaStylesDemo: React.FC = () => {
   return (
@@ -47,12 +47,13 @@ export const FigmaStylesDemo: React.FC = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-figma-purple-dark/80 to-figma-purple-medium/80"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-figma-purple-dark/80 to-figma-purple-medium/80"></div> */}
         <div className={`${figmaClasses.container} relative z-10`}>
           <div className="max-w-5xl mx-auto text-center space-y-6">
             <h1 className={`${figmaClasses.headingHero} ${figmaClasses.animateFadeIn}`}>
               Review Contracts 10x Faster with AI
             </h1>
+            
             <div className="max-w-xl mx-auto">
               <p className={`${figmaClasses.paragraph} ${figmaClasses.animateFadeInDelay1}`}>
                 Transform your legal workflow with intelligent contract analysis that extracts key clauses,

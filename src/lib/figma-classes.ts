@@ -11,7 +11,7 @@ export const figmaClasses = {
   container: "max-w-[1200px] mx-auto px-6",
   
   // Typography
-  headingHero: "font-montserrat font-medium text-5xl md:text-7xl lg:text-[80px] leading-tight tracking-[-3%] text-center bg-gradient-to-b from-[#f9e7b4] to-[#f5deb3] bg-clip-text text-transparent",
+  headingHero: "font-montserrat font-medium text-5xl md:text-7xl lg:text-[80px] leading-none tracking-tight text-center bg-gradient-to-b from-white to-[#ECECEC]/0 bg-clip-text text-transparent",
   headingSection: "font-montserrat font-medium text-3xl md:text-4xl lg:text-[48px] leading-[1.2em] tracking-[-0.67%] text-center text-figma-text-primary",
   headingCard: "font-montserrat font-medium text-2xl md:text-[32px] leading-[1.3em] tracking-[-0.5%] text-figma-text-primary",
   paragraph: "font-montserrat font-normal text-base md:text-[18px] leading-[1.6em] text-figma-text-secondary text-center",
