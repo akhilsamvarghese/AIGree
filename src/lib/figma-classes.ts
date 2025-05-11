@@ -38,7 +38,9 @@ export const figmaClasses = {
 
 
  // Navbar wrapper
- navbar: "w-full bg-[#0B0121] flex justify-center items-start px-4 sm:px-6 h-[72px]",
+  navbar: "w-full flex justify-center items-start px-4 sm:px-6 h-[72px]",
+ // Floating card-style navbar with backdrop blur
+  navbarFloating: "fixed top-4 left-0 right-0 z-[1000] bg-[#0B0121]/80 backdrop-blur-md transition-all duration-300 shadow-lg border border-[#ECECEC]/10 mx-4 md:mx-auto max-w-[calc(100%-2rem)] md:max-w-[1200px] rounded-2xl",
  // Navbar inner container (centers and constrains width)
  navbarContainer: "w-full max-w-[1440px] h-[72px] flex items-center justify-between",
  // Wrapper for logo and menu with spacing on large screens
@@ -54,6 +56,8 @@ export const figmaClasses = {
  navbarLinkAbout: "w-[97px]",// Primary Button (Sign up)
  navbarButton: "flex justify-center items-center px-5 py-2 gap-2 w-full md:w-[228px] h-[40px] bg-[#ECECEC] border border-[#ECECEC] rounded-full text-[#0B081C] font-montserrat text-base leading-[150%]",// Outline Button (Contact us)
  navbarButtonOutline: "flex justify-center items-center px-5 py-2 gap-2 w-full md:w-[128px] h-[40px] border border-[#ECECEC] rounded-full text-[#ECECEC] font-montserrat text-base leading-[150%]",
+ // Spacer to prevent content from hiding under fixed navbar
+ navbarSpacer: "h-[80px] w-full", // Increased slightly to account for the top margin
  
   // Sections
   sectionTitle: "max-w-2xl mx-auto text-center mb-16",

@@ -1,29 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { figmaClasses } from '@/lib/figma-classes';
 import blueLaptopUser from '@/assets/blue_laptop_user.webp';
 import cavernBackground from '@/assets/moonrise.png';
 
 export const FigmaStylesDemo: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  
+  // Handle scroll event to change navbar appearance
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
   return (
     <div className="min-h-screen bg-figma-background text-figma-foreground">
-      {/* Navbar */}
-      <nav className="flex flex-row justify-center items-start p-0 w-full h-[72px] bg-[#0B0121]">
-        <div className="flex flex-row justify-center items-center p-0 w-[1200px] h-[72px]">
-          <div className="flex flex-row justify-between items-center p-0 gap-[625px] w-[1200px] h-[72px]">
+      {/* Floating Card-Style Navbar */}
+      <nav className={`${figmaClasses.navbar} ${figmaClasses.navbarFloating} transition-all duration-300 ease-in-out mx-auto my-4 max-w-[1200px] rounded-full ${scrolled ? 'bg-[#0B0121]/95 shadow-lg' : 'bg-[#0B0121]/80'}`}>
+        <div className="flex flex-row justify-center items-center w-full max-w-[1200px] h-[72px] px-6">
+          <div className="flex flex-row justify-between items-center gap-4 md:gap-[625px] w-full h-[72px]">
             <div className="flex flex-row items-start p-0 w-[138px] h-[22px]">
               <div className="flex flex-row justify-center items-center p-0 gap-[10px] w-[138px] h-[22px]">
                 <img src="/src/assets/book-open-text-2.png" alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" />
                 <span className="font-montserrat font-bold text-[22px] leading-[100%] flex items-center tracking-[-0.03em] text-[#ECECEC]">AIgree</span>
               </div>
             </div>
-            <div className="flex flex-row items-center justify-end p-0 gap-[32px] w-[756px] h-[72px]">
-              <a href="#" className="flex flex-row items-start p-[24px_12px] w-[94px] h-[72px]">
+            {/* Mobile menu button */}
+            <button className="md:hidden flex items-center justify-center w-10 h-10 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            
+            <div className="hidden md:flex flex-row items-center justify-end p-0 gap-[32px] w-auto md:w-[756px] h-[72px]">
+              <a href="#" className="flex flex-row items-start p-[24px_12px] w-auto md:w-[94px] h-[72px]">
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Features</span>
               </a>
-              <a href="#" className="flex flex-row items-start p-[24px_12px] w-[81px] h-[72px]">
+              <a href="#" className="flex flex-row items-start p-[24px_12px] w-auto md:w-[81px] h-[72px]">
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Pricing</span>
               </a>
-              <a href="#" className="flex flex-row items-start p-[24px_12px] w-[97px] h-[72px]">
+              <a href="#" className="flex flex-row items-start p-[24px_12px] w-auto md:w-[97px] h-[72px]">
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">About us</span>
               </a>
               {/* <button className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[228px] h-[40px] bg-[#ECECEC] border border-[#ECECEC] rounded-[50px]">
@@ -36,10 +65,14 @@ export const FigmaStylesDemo: React.FC = () => {
           </div>
         </div>
       </nav>
+      
+      {/* Spacer to prevent content from hiding under fixed navbar */}
+      {/* Gradient Spacer with Theme Colors */}
+      {/* <div className="h-[80px] w-full bg-gradient-to-r from-[#0a0c2c] via-[#1a0e40] to-[#7029a6]"></div> */}
 
       {/* Hero Section */}
       <section 
-        className={`${figmaClasses.heroBg} py-20 md:py-40 relative`}
+        className={`${figmaClasses.heroBg} pt-38 pb-24 md:pt-60 md:pb-32 relative`}
         style={{
           backgroundImage: `url(${cavernBackground})`,
           backgroundSize: 'cover',
@@ -66,7 +99,10 @@ export const FigmaStylesDemo: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+
+        {/* Progressive Blur Transition */}
+        <div className="figma-blur-transition"></div>
+       </section>
 
       {/* Features Section */}
       <section className="py-20">
