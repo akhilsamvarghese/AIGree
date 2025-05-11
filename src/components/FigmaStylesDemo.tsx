@@ -242,7 +242,7 @@ export const FigmaStylesDemo: React.FC = () => {
             
             <div className="flex justify-end items-end">
               <div className="flex items-center gap-2">
-                <img src="/src/assets/book-open-text-2.png" alt="AIgree Logo" className="w-[22px] h-[22px] flex-none mb-4" />
+                <img src={logo} alt="AIgree Logo" className="w-[22px] h-[22px] flex-none mb-4" />
                 <span className="font-montserrat font-bold text-[22px] leading-[100%] flex items-center tracking-[-0.03em] text-[#ECECEC] mb-4">AIgree</span>
               </div>
             </div>
