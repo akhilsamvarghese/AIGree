@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { figmaClasses } from '@/lib/figma-classes';
 import blueLaptopUser from '@/assets/blue_laptop_user.webp';
 import cavernBackground from '@/assets/moonrise.png';
+import logo from '@/assets/book-open-text-2.png';
 
 export const FigmaStylesDemo: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +35,8 @@ export const FigmaStylesDemo: React.FC = () => {
           <div className="flex flex-row justify-between items-center gap-4 md:gap-[625px] w-full h-[72px]">
             <div className="flex flex-row items-start p-0 w-[138px] h-[22px]">
               <div className="flex flex-row justify-center items-center p-0 gap-[10px] w-[138px] h-[22px]">
-                <img src="/src/assets/book-open-text-2.png" alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" />
+              <img src={logo} alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" />
+                {/* <img src="/src/assets/book-open-text-2.png" alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" /> */}
                 <span className="font-montserrat font-bold text-[22px] leading-[100%] flex items-center tracking-[-0.03em] text-[#ECECEC]">AIgree</span>
               </div>
             </div>
