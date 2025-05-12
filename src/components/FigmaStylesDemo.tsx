@@ -5,12 +5,12 @@ import logo from '@/assets/book-open-text-2.png';
 import uploadDoc from '@/assets/Upload_Your_Document.png';
 import letAiExtract from '@/assets/Let_AI_Extract.png';
 import getAnswers from '@/assets/Get_answers.png';
-import riskAssessment from '@/assets/images/Risk_Assessment.png';
-import clauseExtraction from '@/assets/images/clause_extracton.png';
-import analyticsDashboard from '@/assets/images/Analytics_Dashboard.png';
-import chatWithDocs from '@/assets/images/chat.png';
-import automatedEfficiency from '@/assets/images/ Automated_Efficiency.png';
-import customizableTemplates from '@/assets/images/advanced-customization.png';
+import riskAssessment from '@/assets/new/risk-assessment.png';
+import clauseExtraction from '@/assets/new/clause.png';
+import analyticsDashboard from '@/assets/new/analytics.png';
+import chatWithDocs from '@/assets/new/chat_with_docs.png';
+import automatedEfficiency from '@/assets/new/efficency.png';
+import customizableTemplates from '@/assets/new/customizable_temp.png';
 import { SignUpModal } from './SignUpModal';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -218,9 +218,9 @@ export const FigmaStylesDemo: React.FC = () => {
               className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-purple-500/15 via-purple-400/5 to-transparent border border-purple-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-purple-500/30 hover:border-purple-500/40`}
             >
               <div className="mb-10 transform group-hover:scale-105 transition-transform duration-150">
-                <div className="relative">
+                <div className="relative flex items-center justify-center h-[200px]">
                   <div className="absolute inset-0 bg-purple-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-150"></div>
-                  <img src={uploadDoc} alt="Upload Document" className="w-[200px] h-[200px] object-contain relative z-10" />
+                  <img src={uploadDoc} alt="Upload Document" className="w-full h-full object-contain relative z-10 p-4" />
                 </div>
               </div>
               <h3 className={`${figmaClasses.headingCard} group-hover:text-purple-400 transition-colors duration-300`}>Upload Your Document</h3>
@@ -232,9 +232,9 @@ export const FigmaStylesDemo: React.FC = () => {
               className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-pink-500/15 via-pink-400/5 to-transparent border border-pink-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-pink-500/30 hover:border-pink-500/40`}
             >
               <div className="mb-10 transform group-hover:scale-105 transition-transform duration-150">
-                <div className="relative">
+                <div className="relative flex items-center justify-center h-[200px]">
                   <div className="absolute inset-0 bg-pink-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-150"></div>
-                  <img src={letAiExtract} alt="AI Analysis" className="w-[200px] h-[200px] object-contain relative z-10" />
+                  <img src={letAiExtract} alt="AI Analysis" className="w-full h-full object-contain relative z-10 p-4" />
                 </div>
               </div>
               <h3 className={`${figmaClasses.headingCard} group-hover:text-pink-400 transition-colors duration-300`}>Let AI Extract, Analyze & Summarize</h3>
@@ -246,9 +246,9 @@ export const FigmaStylesDemo: React.FC = () => {
               className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-blue-500/15 via-blue-400/5 to-transparent border border-blue-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-blue-500/30 hover:border-blue-500/40`}
             >
               <div className="mb-10 transform group-hover:scale-105 transition-transform duration-150">
-                <div className="relative">
+                <div className="relative flex items-center justify-center h-[200px]">
                   <div className="absolute inset-0 bg-blue-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-150"></div>
-                  <img src={getAnswers} alt="Get Answers" className="w-[200px] h-[200px] object-contain relative z-10" />
+                  <img src={getAnswers} alt="Get Answers" className="w-full h-full object-contain relative z-10 p-4" />
                 </div>
               </div>
               <h3 className={`${figmaClasses.headingCard} group-hover:text-blue-400 transition-colors duration-300`}>Get Answers. Take Action.</h3>
@@ -280,9 +280,9 @@ export const FigmaStylesDemo: React.FC = () => {
                   <h3 className={`${figmaClasses.headingCard} text-3xl md:text-4xl mb-4 group-hover:text-purple-400 transition-colors duration-200`}>Risk Assessment</h3>
                   <p className="text-gray-400 text-lg mb-6">Identify potential risks and compliance issues automatically</p>
                 </div>
-                <div className="relative mt-auto w-full max-w-[400px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
+                <div className="relative mt-auto w-full h-[200px] max-w-[400px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
                   <div className="absolute inset-0 bg-purple-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
-                  <img src={riskAssessment} alt="Risk Assessment" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                  <img src={riskAssessment} alt="Risk Assessment" className="w-full h-full object-contain rounded-2xl relative z-10" />
                 </div>
               </div>
             </div>
@@ -295,9 +295,9 @@ export const FigmaStylesDemo: React.FC = () => {
                   <h3 className={`${figmaClasses.headingCard} text-3xl md:text-4xl mb-4 group-hover:text-pink-400 transition-colors duration-200`}>Intelligent Clause Extraction</h3>
                   <p className="text-gray-400 text-lg mb-6">Extract and analyze key contract clauses with precision</p>
                 </div>
-                <div className="relative mt-auto w-full max-w-[400px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
+                <div className="relative mt-auto w-full h-[200px] max-w-[400px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
                   <div className="absolute inset-0 bg-pink-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
-                  <img src={clauseExtraction} alt="Intelligent Clause Extraction" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                  <img src={clauseExtraction} alt="Intelligent Clause Extraction" className="w-full h-full object-contain rounded-2xl relative z-10" />
                 </div>
               </div>
             </div>
@@ -310,9 +310,9 @@ export const FigmaStylesDemo: React.FC = () => {
                   <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-blue-400 transition-colors duration-150`}>Analytics Dashboard</h3>
                   <p className="text-gray-400 text-base mb-4">Track and visualize contract metrics</p>
                 </div>
-                <div className="relative mt-auto w-full max-w-[300px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
+                <div className="relative mt-auto w-full h-[160px] max-w-[300px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
                   <div className="absolute inset-0 bg-blue-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
-                  <img src={analyticsDashboard} alt="Analytics Dashboard" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                  <img src={analyticsDashboard} alt="Analytics Dashboard" className="w-full h-full object-contain rounded-2xl relative z-10" />
                 </div>
               </div>
             </div>
@@ -327,15 +327,15 @@ export const FigmaStylesDemo: React.FC = () => {
                       <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-emerald-400 transition-colors duration-500`}>Chat with Docs</h3>
                       <p className="text-gray-400 text-base mb-4">Interactive AI-powered document conversations</p>
                     </div>
-                    <div className="relative w-full max-w-[300px] transform group-hover:scale-[1.02] group-hover:rotate-1 transition-all duration-150">
+                    <div className="relative w-full h-[180px] max-w-[300px] transform group-hover:scale-[1.02] group-hover:rotate-1 transition-all duration-150 -mt-4">
                       <div className="absolute inset-0 bg-emerald-500/40 rounded-2xl blur-3xl group-hover:blur-3xl transition-all duration-150"></div>
-                      <img src={chatWithDocs} alt="Chat with Docs" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                      <img src={chatWithDocs} alt="Chat with Docs" className="w-full h-full object-contain rounded-2xl relative z-10" />
                     </div>
                   </div>
                   <div className="hidden md:flex items-center justify-center relative z-10">
-                    <div className="relative w-full max-w-[300px] transform group-hover:scale-[1.01] group-hover:translate-x-1 transition-transform duration-150">
+                    <div className="relative w-full h-[180px] max-w-[300px] transform group-hover:scale-[1.01] group-hover:translate-x-1 transition-transform duration-150">
                       <div className="absolute inset-0 bg-emerald-500/30 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
-                      <div className="bg-gradient-to-br from-emerald-500/30 via-emerald-400/20 to-transparent p-6 rounded-2xl border border-emerald-500/30">
+                      <div className="bg-gradient-to-br from-emerald-500/30 via-emerald-400/20 to-transparent p-6 rounded-2xl border border-emerald-500/30 h-full flex flex-col justify-center">
                         <p className="text-emerald-200 text-sm mb-4">AI Assistant</p>
                         <p className="text-white text-base">I've analyzed the contract and found several key points that require attention...</p>
                       </div>
@@ -353,9 +353,9 @@ export const FigmaStylesDemo: React.FC = () => {
                   <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-violet-400 transition-colors duration-75`}>Automated Efficiency</h3>
                   <p className="text-gray-400 text-base mb-4">Streamline your workflow with AI automation</p>
                 </div>
-                <div className="relative mt-auto w-full max-w-[300px] mx-auto transform group-hover:scale-[1.005] transition-transform duration-75">
+                <div className="relative w-full h-[180px] max-w-[300px] mx-auto transform group-hover:scale-[1.005] transition-transform duration-75">
                   <div className="absolute inset-0 bg-violet-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-75"></div>
-                  <img src={automatedEfficiency} alt="Automated Efficiency" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                  <img src={automatedEfficiency} alt="Automated Efficiency" className="w-full h-full object-contain rounded-2xl relative z-10" />
                 </div>
               </div>
             </div>
@@ -368,9 +368,9 @@ export const FigmaStylesDemo: React.FC = () => {
                   <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-amber-400 transition-colors duration-75`}>Customizable Templates</h3>
                   <p className="text-gray-400 text-base mb-4">Create and manage custom contract templates</p>
                 </div>
-                <div className="relative mt-auto w-full max-w-[300px] mx-auto transform group-hover:scale-[1.005] transition-transform duration-75">
+                <div className="relative w-full h-[180px] max-w-[300px] mx-auto transform group-hover:scale-[1.005] transition-transform duration-75">
                   <div className="absolute inset-0 bg-amber-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-75"></div>
-                  <img src={customizableTemplates} alt="Customizable Templates" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                  <img src={customizableTemplates} alt="Customizable Templates" className="w-full h-full object-contain rounded-2xl relative z-10" />
                 </div>
               </div>
             </div>
