@@ -133,11 +133,11 @@
   }
   
   .cta-button-primary {
-    @apply bg-white text-aigree-purple-dark hover:bg-opacity-90 font-medium rounded-full px-6 py-2 transition-all duration-300;
+    @apply bg-white text-aigree-purple-dark hover:bg-opacity-90 font-medium rounded-full px-6 py-2 transition-opacity duration-150 will-change-[opacity,transform] hover:scale-[1.02] transform-gpu;
   }
   
   .cta-button-secondary {
-    @apply bg-transparent border border-white text-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full px-6 py-2 transition-all duration-300;
+    @apply bg-transparent border border-white text-white hover:bg-white hover:bg-opacity-10 font-medium rounded-full px-6 py-2 transition-[background,transform] duration-150 will-change-[background,transform] hover:scale-[1.02] transform-gpu;
   }
 }
 

@@ -11,9 +11,9 @@ export const figmaClasses = {
   container: "max-w-[1200px] mx-auto px-6",
   
   // Typography
-  headingHero: "font-montserrat font-medium text-5xl md:text-7xl lg:text-[80px] leading-none tracking-tight text-center bg-gradient-to-b from-white to-[#ECECEC]/0 bg-clip-text text-transparent",
-  headingSection: "font-montserrat font-medium text-3xl md:text-4xl lg:text-[48px] leading-[1.2em] tracking-[-0.67%] text-center text-figma-text-primary",
-  headingCard: "font-montserrat font-medium text-2xl md:text-[32px] leading-[1.3em] tracking-[-0.5%] text-figma-text-primary",
+  headingHero: "font-montserrat font-medium text-6xl md:text-8xl lg:text-[96px] leading-none tracking-tight text-center bg-gradient-to-r from-white via-pink-300/90 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient-flow",
+  headingSection: "font-montserrat font-extrabold text-4xl md:text-5xl lg:text-[56px] leading-[1.2em] tracking-[-0.67%] text-center bg-gradient-to-r from-white via-white/90 to-white/80 bg-clip-text text-transparent transform transition-all duration-500 hover:scale-[1.02] mb-12 animate-fade-in-up",
+  headingCard: "font-montserrat font-bold text-2xl md:text-[36px] leading-[1.3em] tracking-[-0.5%] bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent transform transition-all duration-300 group-hover:scale-[1.02] mb-8",
   paragraph: "font-montserrat font-normal text-base md:text-[18px] leading-[1.6em] text-figma-text-secondary text-center",
   paragraphSmall: "font-montserrat font-normal text-[14px] leading-[1.5em] text-figma-text-primary",
   
@@ -22,13 +22,13 @@ export const figmaClasses = {
   buttonSecondary: "bg-transparent text-figma-text-primary font-montserrat font-normal text-base leading-normal py-3 px-6 rounded-[60px] border border-figma-text-primary inline-flex justify-center items-center transition-all duration-300 hover:bg-opacity-10 hover:bg-white",
   
   // Cards
-  card: "bg-gradient-to-b from-white/5 to-transparent rounded-[20px] p-6 md:p-12 lg:p-[60px] shadow-figma-card",
-  cardPink: "bg-gradient-to-b from-pink-500/5 to-transparent rounded-[20px] p-6 md:p-12 lg:p-[60px] shadow-figma-card",
+  card: "group bg-gradient-to-b from-white/5 to-transparent hover:from-white/10 rounded-[20px] p-6 md:p-12 lg:p-[60px] shadow-figma-card border border-white/5 hover:border-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-figma-card-hover relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/5 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000 cursor-pointer",
+  cardPink: "group bg-gradient-to-b from-pink-500/5 to-transparent hover:from-pink-500/10 rounded-[20px] p-6 md:p-12 lg:p-[60px] shadow-figma-card border border-pink-500/5 hover:border-pink-500/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-figma-card-hover relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-pink-500/5 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000 cursor-pointer",
   
   // Icon wrappers
-  iconWrapperPurple: "w-12 h-12 rounded-full bg-figma-purple-light flex items-center justify-center shadow-figma-icon-purple",
-  iconWrapperPink: "w-12 h-12 rounded-full bg-figma-purple-light flex items-center justify-center shadow-figma-icon-pink",
-  iconWrapperMagenta: "w-12 h-12 rounded-full bg-figma-pink/30 flex items-center justify-center shadow-figma-icon-magenta",
+  iconWrapperPurple: "w-12 h-12 rounded-full bg-figma-purple-light flex items-center justify-center shadow-figma-icon-purple transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
+  iconWrapperPink: "w-12 h-12 rounded-full bg-figma-purple-light flex items-center justify-center shadow-figma-icon-pink transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
+  iconWrapperMagenta: "w-12 h-12 rounded-full bg-figma-pink/30 flex items-center justify-center shadow-figma-icon-magenta transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3",
   
   // Backgrounds
   heroBg: "bg-gradient-to-b from-figma-purple-dark to-figma-purple-medium relative",
@@ -66,9 +66,9 @@ export const figmaClasses = {
   ctaContent: "max-w-2xl mx-auto text-center space-y-6",
   
   // Feature Cards
-  featureCardContent: "flex flex-col gap-4",
-  featureCardIcon: "w-12 h-12 rounded-full flex items-center justify-center",
-  featureCardImagePlaceholder: "rounded-2xl bg-figma-purple-dark/50 h-48 md:h-auto flex items-center justify-center",
+  featureCardContent: "flex flex-col gap-4 transition-all duration-300 group-hover:translate-y-[-4px]",
+  featureCardIcon: "w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110",
+  featureCardImagePlaceholder: "rounded-2xl bg-figma-purple-dark/50 h-48 md:h-auto flex items-center justify-center transition-transform duration-300 group-hover:scale-105",
   
   // Animations
   animateFadeIn: "animate-fade-in",

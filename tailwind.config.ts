@@ -129,17 +129,30 @@ export default {
 						opacity: '1',
 						transform: 'translateX(0)'
 					}
+				},
+				'figma-gradient-flow': {
+					'0%': {
+						'background-position': '0% 50%'
+					},
+					'50%': {
+						'background-position': '100% 50%'
+					},
+					'100%': {
+						'background-position': '0% 50%'
+					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'fade-in-delay-1': 'fade-in 0.5s ease-out 0.1s forwards',
-				'fade-in-delay-2': 'fade-in 0.5s ease-out 0.2s forwards',
-				'fade-in-delay-3': 'fade-in 0.5s ease-out 0.3s forwards',
-				'fade-in-left': 'fade-in-left 0.5s ease-out forwards'
+				'accordion-down': 'accordion-down 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'accordion-up': 'accordion-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'fade-in': 'fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'fade-in-delay-1': 'fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards',
+				'fade-in-delay-2': 'fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards',
+				'fade-in-delay-3': 'fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards',
+				'fade-in-left': 'fade-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+				'gradient-flow': 'figma-gradient-flow 8s linear infinite'
 			},
+
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'hero-gradient': 'linear-gradient(to bottom, #1e0938, #3a0f63)',
@@ -155,11 +168,12 @@ export default {
 				none: 'none',
 				'feature-card': '0 4px 20px rgba(0, 0, 0, 0.25)',
 				'glow': '0 0 15px rgba(235, 73, 255, 0.5)',
-				'figma-card': '0px -2px 40px 0px rgba(187, 155, 255, 0.15), 0px -2px 10px 0px rgba(233, 223, 255, 0.3), inset 0px 0.5px 0px 0px rgba(255, 255, 255, 0.5)',
+				'figma-card': '0px -2px 20px 0px rgba(187, 155, 255, 0.1), 0px -2px 5px 0px rgba(233, 223, 255, 0.2), inset 0px 0.5px 0px 0px rgba(255, 255, 255, 0.5)',
+				'figma-card-hover': '0px 4px 25px 0px rgba(187, 155, 255, 0.2), 0px 4px 10px 0px rgba(233, 223, 255, 0.3), inset 0px 1px 1px 0px rgba(255, 255, 255, 0.6)',
 				'figma-button': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
 				'figma-icon-purple': '0px 0px 36px rgba(89, 29, 221, 0.75)',
 				'figma-icon-pink': '0px 0px 36px rgba(149, 37, 201, 0.75)',
-				'figma-icon-magenta': '0px 0px 36px rgba(201, 37, 171, 0.75)',
+				'figma-icon-magenta': '0px 0px 36px rgba(201, 37, 171, 0.75)'
 				
 			}
 		}

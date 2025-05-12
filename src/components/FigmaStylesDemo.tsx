@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { figmaClasses } from '@/lib/figma-classes';
-import blueLaptopUser from '@/assets/blue_laptop_user.webp';
 import cavernBackground from '@/assets/moonrise.png';
 import logo from '@/assets/book-open-text-2.png';
+import uploadDoc from '@/assets/Upload_Your_Document.png';
+import letAiExtract from '@/assets/Let_AI_Extract.png';
+import getAnswers from '@/assets/Get_answers.png';
+import riskAssessment from '@/assets/images/Risk_Assessment.png';
+import clauseExtraction from '@/assets/images/clause_extracton.png';
+import analyticsDashboard from '@/assets/images/Analytics_Dashboard.png';
+import chatWithDocs from '@/assets/images/chat.png';
+import automatedEfficiency from '@/assets/images/ Automated_Efficiency.png';
+import customizableTemplates from '@/assets/images/advanced-customization.png';
+import { SignUpModal } from './SignUpModal';
 
 export const FigmaStylesDemo: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Handle scroll event to change navbar appearance
   useEffect(() => {
@@ -35,9 +45,20 @@ export const FigmaStylesDemo: React.FC = () => {
           <div className="flex flex-row justify-between items-center gap-4 md:gap-[625px] w-full h-[72px]">
             <div className="flex flex-row items-start p-0 w-[138px] h-[22px]">
               <div className="flex flex-row justify-center items-center p-0 gap-[10px] w-[138px] h-[22px]">
-              <img src={logo} alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" />
-                {/* <img src="/src/assets/book-open-text-2.png" alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" /> */}
-                <span className="font-montserrat font-bold text-[22px] leading-[100%] flex items-center tracking-[-0.03em] text-[#ECECEC]">AIgree</span>
+                <a 
+                  href="#" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth'
+                    });
+                  }}
+                  className="flex flex-row justify-center items-center gap-[10px]"
+                >
+                  <img src={logo} alt="AIgree Logo" className="w-[22px] h-[22px] flex-none" />
+                  <span className="font-montserrat font-bold text-[22px] leading-[100%] flex items-center tracking-[-0.03em] text-[#ECECEC]">AIgree</span>
+                </a>
               </div>
             </div>
             {/* Mobile menu button */}
@@ -48,33 +69,65 @@ export const FigmaStylesDemo: React.FC = () => {
             </button>
             
             <div className="hidden md:flex flex-row items-center justify-end p-0 gap-[32px] w-auto md:w-[756px] h-[72px]">
-              <a href="#" className="flex flex-row items-start p-[24px_12px] w-auto md:w-[94px] h-[72px]">
+              <a 
+                href="#workflow" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const workflowSection = document.getElementById('workflow');
+                  if (workflowSection) {
+                    const navbarHeight = 80; // Reduced from 120 to 80 for better visibility
+                    const elementPosition = workflowSection.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - navbarHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }} 
+                className="flex flex-row items-center justify-center p-[24px_12px] w-auto md:w-[81px] h-[72px] hover:text-purple-400 transition-colors duration-200"
+              >
+                <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Overview</span>
+              </a>
+              <a 
+                href="#features" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const featuresSection = document.getElementById('features');
+                  if (featuresSection) {
+                    const navbarHeight = 120;
+                    const elementPosition = featuresSection.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementPosition - navbarHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }} 
+                className="flex flex-row items-center justify-center p-[24px_12px] w-auto md:w-[81px] h-[72px] hover:text-purple-400 transition-colors duration-200"
+              >
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Features</span>
               </a>
-              <a href="#" className="flex flex-row items-start p-[24px_12px] w-auto md:w-[81px] h-[72px]">
-                <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Pricing</span>
-              </a>
-              <a href="#" className="flex flex-row items-start p-[24px_12px] w-auto md:w-[97px] h-[72px]">
+              <a href="#" className="flex flex-row items-center justify-center p-[24px_12px] w-auto md:w-[97px] h-[72px] hover:text-purple-400 transition-colors duration-200">
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">About us</span>
               </a>
-              {/* <button className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[228px] h-[40px] bg-[#ECECEC] border border-[#ECECEC] rounded-[50px]">
+              {/* <button onClick={() => setIsModalOpen(true)} className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[228px] h-[40px] bg-[#ECECEC] border border-[#ECECEC] rounded-[50px] hover:bg-purple-400 hover:border-purple-400 transition-colors duration-200">
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#0B081C]">Sign up for Early access</span>
-              </button>
-              <button className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[128px] h-[40px] border border-[#ECECEC] rounded-[50px]">
-                <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Contact Us</span>
               </button> */}
+              {/* <a href="mailto:hello@aigree.com" className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[128px] h-[40px] border border-[#ECECEC] rounded-[50px] hover:border-purple-400 hover:text-purple-400 transition-colors duration-200">
+                <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Contact Us</span>
+              </a> */}
             </div>
           </div>
         </div>
       </nav>
       
       {/* Spacer to prevent content from hiding under fixed navbar */}
-      {/* Gradient Spacer with Theme Colors */}
-      {/* <div className="h-[80px] w-full bg-gradient-to-r from-[#0a0c2c] via-[#1a0e40] to-[#7029a6]"></div> */}
+      {/* Gradient Spacer with Theme Colors - Mobile Only */}
+      {/* <div className="md:hidden h-[80px] w-full bg-gradient-to-b from-[#0B0121] via-[#1E0B3B] to-transparent"></div> */}
 
       {/* Hero Section */}
       <section 
-        className={`${figmaClasses.heroBg} pt-38 pb-24 md:pt-60 md:pb-32 relative`}
+        className={`${figmaClasses.heroBg} pt-44 pb-32 md:pt-72 md:pb-40 relative`}
         style={{
           backgroundImage: `url(${cavernBackground})`,
           backgroundSize: 'cover',
@@ -82,7 +135,7 @@ export const FigmaStylesDemo: React.FC = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-figma-purple-dark/80 to-figma-purple-medium/80"></div> */}
+         
         <div className={`${figmaClasses.container} relative z-10`}>
           <div className="max-w-5xl mx-auto text-center space-y-6">
             <h1 className={`${figmaClasses.headingHero} ${figmaClasses.animateFadeIn}`}>
@@ -96,8 +149,8 @@ export const FigmaStylesDemo: React.FC = () => {
               </p>
             </div>
             <div className={`flex flex-col sm:flex-row justify-center gap-4 pt-6 ${figmaClasses.animateFadeInDelay2}`}>
-              <button className={figmaClasses.buttonPrimary}>Sign up for Early access</button>
-              <button className={figmaClasses.buttonSecondary}>Contact Us</button>
+              <button className={figmaClasses.buttonPrimary} onClick={() => setIsModalOpen(true)}>Sign up for Early access</button>
+              <a href="mailto:hello@aigree.com" className={figmaClasses.buttonSecondary}>Contact Us</a>
             </div>
           </div>
         </div>
@@ -106,8 +159,67 @@ export const FigmaStylesDemo: React.FC = () => {
         <div className="figma-blur-transition"></div>
        </section>
 
+      {/* Workflow Section */}
+      <section id="workflow" className="py-28 md:py-36 bg-figma-background">
+        <div className={figmaClasses.container}>
+          <div className={`${figmaClasses.sectionTitle}`}>
+            <h2 className={figmaClasses.headingSection}>
+              From Upload to Insight In Minutes
+            </h2>
+            <p className={`${figmaClasses.paragraph} mt-6 max-w-3xl mx-auto text-gray-400 leading-relaxed`}>
+              Experience the power of AI-driven contract analysis with our streamlined three-step process.
+            </p>
+          </div>
+
+          {/* 3-Step Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-20">
+            {/* Step 1 */}
+            <div 
+              className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-purple-500/15 via-purple-400/5 to-transparent border border-purple-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-purple-500/30 hover:border-purple-500/40`}
+            >
+              <div className="mb-10 transform group-hover:scale-105 transition-transform duration-150">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-purple-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-150"></div>
+                  <img src={uploadDoc} alt="Upload Document" className="w-[200px] h-[200px] object-contain relative z-10" />
+                </div>
+              </div>
+              <h3 className={`${figmaClasses.headingCard} group-hover:text-purple-400 transition-colors duration-300`}>Upload Your Document</h3>
+              <p className="text-gray-400 mt-4">Securely upload your contracts for instant analysis</p>
+            </div>
+
+            {/* Step 2 */}
+            <div 
+              className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-pink-500/15 via-pink-400/5 to-transparent border border-pink-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-pink-500/30 hover:border-pink-500/40`}
+            >
+              <div className="mb-10 transform group-hover:scale-105 transition-transform duration-150">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-pink-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-150"></div>
+                  <img src={letAiExtract} alt="AI Analysis" className="w-[200px] h-[200px] object-contain relative z-10" />
+                </div>
+              </div>
+              <h3 className={`${figmaClasses.headingCard} group-hover:text-pink-400 transition-colors duration-300`}>Let AI Extract, Analyze & Summarize</h3>
+              <p className="text-gray-400 mt-4">Advanced AI processes and analyzes your documents</p>
+            </div>
+
+            {/* Step 3 */}
+            <div 
+              className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-blue-500/15 via-blue-400/5 to-transparent border border-blue-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-blue-500/30 hover:border-blue-500/40`}
+            >
+              <div className="mb-10 transform group-hover:scale-105 transition-transform duration-150">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-blue-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-150"></div>
+                  <img src={getAnswers} alt="Get Answers" className="w-[200px] h-[200px] object-contain relative z-10" />
+                </div>
+              </div>
+              <h3 className={`${figmaClasses.headingCard} group-hover:text-blue-400 transition-colors duration-300`}>Get Answers. Take Action.</h3>
+              <p className="text-gray-400 mt-4">Make informed decisions with AI-powered insights</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="py-20">
+      <section id="features" className="py-12 md:py-10">
         <div className={figmaClasses.container}>
           <div className={figmaClasses.sectionTitle}>
             <h2 className={figmaClasses.headingSection}>Features that work for your future.</h2>
@@ -116,78 +228,108 @@ export const FigmaStylesDemo: React.FC = () => {
             </p>
           </div>
 
-          <div className={figmaClasses.featureGrid}>
-            {/* Feature Card 1 */}
-            <div className={figmaClasses.card}>
-              <div className={figmaClasses.featureCardContent}>
-                <div className={figmaClasses.iconWrapperPurple}>
-                  <span className="text-white text-xl">🔍</span>
+          {/* Bento Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 p-4 md:p-6 max-w-[1400px] mx-auto">
+            {/* Feature Card 1 - Risk Assessment (Spans 6 columns) */}
+            <div className="group md:col-span-6 h-[400px] hover:scale-[1.01] transition-transform duration-150 ease-out">
+              <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-purple-500/20 via-purple-400/10 to-transparent border border-purple-500/30 rounded-[2rem] shadow-xl hover:shadow-purple-500/30 p-8 flex flex-col justify-between`}>
+                <div className="absolute inset-0 bg-gradient-radial from-purple-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150"></div>
+                <div className="relative z-10">
+                  <h3 className={`${figmaClasses.headingCard} text-3xl md:text-4xl mb-4 group-hover:text-purple-400 transition-colors duration-200`}>Risk Assessment</h3>
+                  <p className="text-gray-400 text-lg mb-6">Identify potential risks and compliance issues automatically</p>
                 </div>
-                <h3 className={figmaClasses.headingCard}>Risk Assessment</h3>
-                <p className={figmaClasses.paragraphSmall}>
-                  Protect your organization with intelligent risk detection. Aigree identifies non-standard terms, potential liabilities, and compliance issues, highlighting them for your review. Our customizable risk thresholds adapt to your organization's unique requirements and risk tolerance.
-                </p>
+                <div className="relative mt-auto w-full max-w-[400px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
+                  <div className="absolute inset-0 bg-purple-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
+                  <img src={riskAssessment} alt="Risk Assessment" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                </div>
               </div>
             </div>
 
-            {/* Feature Card 2 */}
-            <div className={figmaClasses.card}>
-              <div className={figmaClasses.featureCardContent}>
-                <div className={figmaClasses.iconWrapperPink}>
-                  <span className="text-white text-xl">📄</span>
+            {/* Feature Card 2 - Intelligent Clause (Spans 6 columns) */}
+            <div className="group md:col-span-6 h-[400px] hover:scale-[1.01] transition-transform duration-150 ease-out">
+              <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-pink-500/20 via-pink-400/10 to-transparent border border-pink-500/30 rounded-[2rem] shadow-xl hover:shadow-pink-500/30 p-8 flex flex-col justify-between`}>
+                <div className="absolute inset-0 bg-gradient-radial from-pink-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150"></div>
+                <div className="relative z-10">
+                  <h3 className={`${figmaClasses.headingCard} text-3xl md:text-4xl mb-4 group-hover:text-pink-400 transition-colors duration-200`}>Intelligent Clause Extraction</h3>
+                  <p className="text-gray-400 text-lg mb-6">Extract and analyze key contract clauses with precision</p>
                 </div>
-                <h3 className={figmaClasses.headingCard}>Intelligent Clause Extraction</h3>
-                <p className={figmaClasses.paragraphSmall}>
-                  Our AI engine automatically identifies and extracts critical clauses from any contract. From indemnification to termination provisions, Aigree instantly surfaces what matters most, reducing review time by up to 90% while ensuring nothing important is missed.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Feature Card - Full Width */}
-          <div className={`${figmaClasses.cardPink} mt-6`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className={`${figmaClasses.featureCardContent} pt-8`}>
-                <div className={figmaClasses.iconWrapperMagenta}>
-                  <span className="text-white text-xl">💬</span>
+                <div className="relative mt-auto w-full max-w-[400px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
+                  <div className="absolute inset-0 bg-pink-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
+                  <img src={clauseExtraction} alt="Intelligent Clause Extraction" className="w-full h-auto object-cover rounded-2xl relative z-10" />
                 </div>
-                <h3 className={figmaClasses.headingCard}>Chat with Docs</h3>
-                <p className={figmaClasses.paragraphSmall}>
-                  Interact with your contracts conversationally. Ask questions, get instant answers, and understand complex terms with ease. Save time and reduce errors with Aigree's intelligent document chat.
-                </p>
-              </div>
-              <div className="flex items-center justify-center">
-              <img src={blueLaptopUser} alt="User interacting with document chat" className="w-[300px] h-auto object-cover rounded-lg"/>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Feature Cards */}
-          <div className={`${figmaClasses.featureGrid} mt-6`}>
-            {/* Feature Card 3 */}
-            <div className={figmaClasses.card}>
-              <div className={figmaClasses.featureCardContent}>
-                <div className={figmaClasses.iconWrapperPurple}>
-                  <span className="text-white text-xl">⚡</span>
-                </div>
-                <h3 className={figmaClasses.headingCard}>Automated Efficiency</h3>
-                <p className={figmaClasses.paragraphSmall}>
-                  Protect your organization with intelligent risk detection. Aigree identifies non-standard terms, potential liabilities, and compliance issues, highlighting them for your review. Our customizable risk thresholds adapt to your organization's unique requirements and risk tolerance.
-                </p>
               </div>
             </div>
 
-            {/* Feature Card 4 */}
-            <div className={figmaClasses.card}>
-              <div className={figmaClasses.featureCardContent}>
-                <div className={figmaClasses.iconWrapperPink}>
-                  <span className="text-white text-xl">📊</span>
+            {/* Feature Card 3 - Analytics Dashboard (Spans 4 columns) */}
+            <div className="group md:col-span-4 h-[350px] hover:scale-[1.01] transition-transform duration-150 ease-out">
+              <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-blue-500/20 via-blue-400/10 to-transparent border border-blue-500/30 rounded-[2rem] shadow-xl hover:shadow-blue-500/30 p-6 flex flex-col justify-between`}>
+                <div className="absolute inset-0 bg-gradient-radial from-blue-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150"></div>
+                <div className="relative z-10">
+                  <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-blue-400 transition-colors duration-150`}>Analytics Dashboard</h3>
+                  <p className="text-gray-400 text-base mb-4">Track and visualize contract metrics</p>
                 </div>
-                <h3 className={figmaClasses.headingCard}>Analytics Dashboard</h3>
-                <p className={figmaClasses.paragraphSmall}>
-                  Gain real-time insights with our clear, intuitive dashboard. 
-                  Aigree provides actionable data, enabling your team to monitor trends and optimize contract performance effortlessly.
-                </p>
+                <div className="relative mt-auto w-full max-w-[300px] mx-auto transform group-hover:scale-[1.02] transition-transform duration-150">
+                  <div className="absolute inset-0 bg-blue-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
+                  <img src={analyticsDashboard} alt="Analytics Dashboard" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                </div>
+              </div>
+            </div>
+
+            {/* Feature Card 4 - Chat with Docs (Spans 8 columns) */}
+            <div className="group md:col-span-8 h-[350px] hover:scale-[1.01] transition-transform duration-150 ease-out">
+              <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-emerald-500/20 via-emerald-400/10 to-transparent border border-emerald-500/30 rounded-[2rem] shadow-xl hover:shadow-emerald-500/30 p-6`}>
+                <div className="absolute inset-0 bg-gradient-radial from-emerald-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-150"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+                  <div className="flex flex-col justify-between relative z-10">
+                    <div>
+                      <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-emerald-400 transition-colors duration-500`}>Chat with Docs</h3>
+                      <p className="text-gray-400 text-base mb-4">Interactive AI-powered document conversations</p>
+                    </div>
+                    <div className="relative w-full max-w-[300px] transform group-hover:scale-[1.02] group-hover:rotate-1 transition-all duration-150">
+                      <div className="absolute inset-0 bg-emerald-500/40 rounded-2xl blur-3xl group-hover:blur-3xl transition-all duration-150"></div>
+                      <img src={chatWithDocs} alt="Chat with Docs" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                    </div>
+                  </div>
+                  <div className="hidden md:flex items-center justify-center relative z-10">
+                    <div className="relative w-full max-w-[300px] transform group-hover:scale-[1.01] group-hover:translate-x-1 transition-transform duration-150">
+                      <div className="absolute inset-0 bg-emerald-500/30 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-150"></div>
+                      <div className="bg-gradient-to-br from-emerald-500/30 via-emerald-400/20 to-transparent p-6 rounded-2xl border border-emerald-500/30">
+                        <p className="text-emerald-200 text-sm mb-4">AI Assistant</p>
+                        <p className="text-white text-base">I've analyzed the contract and found several key points that require attention...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Feature Card 5 - Automated Efficiency (Spans 6 columns) */}
+            <div className="group md:col-span-6 h-[350px] hover:scale-[1.005] transition-transform duration-75 ease-out">
+              <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-violet-500/20 via-violet-400/10 to-transparent border border-violet-500/30 rounded-[2rem] shadow-xl hover:shadow-violet-500/30 p-6 flex flex-col justify-between`}>
+                <div className="absolute inset-0 bg-gradient-radial from-violet-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-75"></div>
+                <div className="relative z-10">
+                  <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-violet-400 transition-colors duration-75`}>Automated Efficiency</h3>
+                  <p className="text-gray-400 text-base mb-4">Streamline your workflow with AI automation</p>
+                </div>
+                <div className="relative mt-auto w-full max-w-[300px] mx-auto transform group-hover:scale-[1.005] transition-transform duration-75">
+                  <div className="absolute inset-0 bg-violet-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-75"></div>
+                  <img src={automatedEfficiency} alt="Automated Efficiency" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                </div>
+              </div>
+            </div>
+
+            {/* Feature Card 6 - Customizable Templates (Spans 6 columns) */}
+            <div className="group md:col-span-6 h-[350px] hover:scale-[1.005] transition-transform duration-75 ease-out">
+              <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-amber-500/20 via-amber-400/10 to-transparent border border-amber-500/30 rounded-[2rem] shadow-xl hover:shadow-amber-500/30 p-6 flex flex-col justify-between`}>
+                <div className="absolute inset-0 bg-gradient-radial from-amber-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-75"></div>
+                <div className="relative z-10">
+                  <h3 className={`${figmaClasses.headingCard} text-2xl md:text-3xl mb-4 group-hover:text-amber-400 transition-colors duration-75`}>Customizable Templates</h3>
+                  <p className="text-gray-400 text-base mb-4">Create and manage custom contract templates</p>
+                </div>
+                <div className="relative mt-auto w-full max-w-[300px] mx-auto transform group-hover:scale-[1.005] transition-transform duration-75">
+                  <div className="absolute inset-0 bg-amber-500/40 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-75"></div>
+                  <img src={customizableTemplates} alt="Customizable Templates" className="w-full h-auto object-cover rounded-2xl relative z-10" />
+                </div>
               </div>
             </div>
           </div>
@@ -195,16 +337,17 @@ export const FigmaStylesDemo: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className={figmaClasses.ctaSection}>
+      <section className={`${figmaClasses.ctaSection} py-16 md:py-30`}>
         <div className={figmaClasses.container}>
           <div className={figmaClasses.card}>
             <div className={figmaClasses.ctaContent}>
-              <h2 className={figmaClasses.headingSection}>Our powerful analytics provides invaluable insights.</h2>
+              <h2 className={figmaClasses.headingSection}>Transform Your Contract Review Process Today</h2>
               <p className={figmaClasses.paragraph}>
-                Unlock the power of data with our cutting-edge analytics product. Get instant insights with our user-friendly Analytics Dashboard, and take advantage of our innovative digital credit tokens to reward your customers and incentivize engagement.
+                Join leading organizations using AIgree to streamline their legal workflows. Our AI-powered platform helps you review contracts faster, reduce risks, and make confident decisions.
               </p>
-              <div className="pt-4">
-                <button className={figmaClasses.buttonPrimary}>Sign up for Early access</button>
+              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
+                <button className={figmaClasses.buttonPrimary} onClick={() => setIsModalOpen(true)}>Get Early Access</button>
+                {/* <button className={figmaClasses.buttonSecondary}>Schedule a Demo</button> */}
               </div>
             </div>
           </div>
@@ -212,7 +355,7 @@ export const FigmaStylesDemo: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 border-t border-figma-text-primary/10">
+      <footer className="py-20 md:py-24 border-t border-figma-text-primary/10">
         <div className={figmaClasses.container}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div className="space-y-6">
@@ -222,14 +365,16 @@ export const FigmaStylesDemo: React.FC = () => {
                 <p className="font-montserrat font-light text-lg text-figma-text-primary">PR and speaking: hello@aigree.com</p>
                 <p className="font-montserrat font-light text-lg text-figma-text-primary">New business: hello@aigree.com</p>
               </div>
-              <p className="font-montserrat font-light text-base text-[#939393]">© 2023 Aigree. All Rights Reserved.</p>
+              <p className="font-montserrat font-light text-base text-[#939393]">© 2025 Aigree. All Rights Reserved.</p>
             </div>
             
             <div className="space-y-6">
               <h3 className="font-montserrat font-medium text-2xl text-figma-text-primary">Address</h3>
               <p className="font-montserrat font-light text-lg text-figma-text-primary">
-                398 11th Street, Floor 2<br />
-                San Francisco, CA 94103
+                xyz street,
+                12345,
+                Kochi,
+                India
               </p>
               
               <div className="space-y-2">
@@ -249,6 +394,8 @@ export const FigmaStylesDemo: React.FC = () => {
           </div>
         </div>
       </footer>
+      {/* Sign Up Modal */}
+      <SignUpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
