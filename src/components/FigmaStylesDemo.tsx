@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { figmaClasses } from '@/lib/figma-classes';
-import cavernBackground from '@/assets/moonrise.png';
+import cavernBackground from '@/assets/moonrise.jpeg';
 import logo from '@/assets/book-open-text-2.png';
 import uploadDoc from '@/assets/Upload_Your_Document.png';
 import letAiExtract from '@/assets/Let_AI_Extract.png';
