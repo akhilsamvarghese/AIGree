@@ -12,10 +12,12 @@ import chatWithDocs from '@/assets/images/chat.png';
 import automatedEfficiency from '@/assets/images/ Automated_Efficiency.png';
 import customizableTemplates from '@/assets/images/advanced-customization.png';
 import { SignUpModal } from './SignUpModal';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export const FigmaStylesDemo: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   
   // Handle scroll event to change navbar appearance
   useEffect(() => {
@@ -36,7 +38,23 @@ export const FigmaStylesDemo: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
+  // Function to handle navigation and close sheet
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const navbarHeight = 80;
+      const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsSheetOpen(false); // Close the sheet after navigation
+  };
+
   return (
     <div className="min-h-screen bg-figma-background text-figma-foreground">
       {/* Floating Card-Style Navbar */}
@@ -53,6 +71,7 @@ export const FigmaStylesDemo: React.FC = () => {
                       top: 0,
                       behavior: 'smooth'
                     });
+                    setIsSheetOpen(false); // Close sheet when clicking logo
                   }}
                   className="flex flex-row justify-center items-center gap-[10px]"
                 >
@@ -61,48 +80,65 @@ export const FigmaStylesDemo: React.FC = () => {
                 </a>
               </div>
             </div>
-            {/* Mobile menu button */}
-            <button className="md:hidden flex items-center justify-center w-10 h-10 text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            
+            {/* Mobile Menu */}
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+              <SheetTrigger asChild>
+                <button 
+                  className="md:hidden flex items-center justify-center w-10 h-10 text-white z-50"
+                  aria-label="Toggle mobile menu"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" 
+                    className="w-6 h-6 transition-transform duration-200"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </SheetTrigger>
+              <SheetContent 
+                side="top" 
+                className="w-full bg-[#0B0121]/95 backdrop-blur-lg border-none pt-20"
+              >
+                <div className="flex flex-col items-center justify-center space-y-8">
+                  <a 
+                    href="#workflow" 
+                    onClick={(e) => handleNavigation(e, 'workflow')}
+                    className="text-2xl font-montserrat text-[#ECECEC] hover:text-purple-400 transition-colors duration-200"
+                  >
+                    Overview
+                  </a>
+                  <a 
+                    href="#features" 
+                    onClick={(e) => handleNavigation(e, 'features')}
+                    className="text-2xl font-montserrat text-[#ECECEC] hover:text-purple-400 transition-colors duration-200"
+                  >
+                    Features
+                  </a>
+                  <a 
+                    href="#" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsSheetOpen(false);
+                    }}
+                    className="text-2xl font-montserrat text-[#ECECEC] hover:text-purple-400 transition-colors duration-200"
+                  >
+                    About us
+                  </a>
+                </div>
+              </SheetContent>
+            </Sheet>
+
+            {/* Desktop Menu */}
             <div className="hidden md:flex flex-row items-center justify-end p-0 gap-[32px] w-auto md:w-[756px] h-[72px]">
               <a 
                 href="#workflow" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  const workflowSection = document.getElementById('workflow');
-                  if (workflowSection) {
-                    const navbarHeight = 80; // Reduced from 120 to 80 for better visibility
-                    const elementPosition = workflowSection.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - navbarHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }} 
+                onClick={(e) => handleNavigation(e, 'workflow')}
                 className="flex flex-row items-center justify-center p-[24px_12px] w-auto md:w-[81px] h-[72px] hover:text-purple-400 transition-colors duration-200"
               >
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Overview</span>
               </a>
               <a 
                 href="#features" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  const featuresSection = document.getElementById('features');
-                  if (featuresSection) {
-                    const navbarHeight = 120;
-                    const elementPosition = featuresSection.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - navbarHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }} 
+                onClick={(e) => handleNavigation(e, 'features')}
                 className="flex flex-row items-center justify-center p-[24px_12px] w-auto md:w-[81px] h-[72px] hover:text-purple-400 transition-colors duration-200"
               >
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Features</span>
@@ -110,12 +146,6 @@ export const FigmaStylesDemo: React.FC = () => {
               <a href="#" className="flex flex-row items-center justify-center p-[24px_12px] w-auto md:w-[97px] h-[72px] hover:text-purple-400 transition-colors duration-200">
                 <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">About us</span>
               </a>
-              {/* <button onClick={() => setIsModalOpen(true)} className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[228px] h-[40px] bg-[#ECECEC] border border-[#ECECEC] rounded-[50px] hover:bg-purple-400 hover:border-purple-400 transition-colors duration-200">
-                <span className="font-montserrat font-normal text-base leading-[150%] text-[#0B081C]">Sign up for Early access</span>
-              </button> */}
-              {/* <a href="mailto:hello@aigree.com" className="flex flex-row justify-center items-center py-2 px-5 gap-2 w-[128px] h-[40px] border border-[#ECECEC] rounded-[50px] hover:border-purple-400 hover:text-purple-400 transition-colors duration-200">
-                <span className="font-montserrat font-normal text-base leading-[150%] text-[#ECECEC]">Contact Us</span>
-              </a> */}
             </div>
           </div>
         </div>
@@ -127,7 +157,7 @@ export const FigmaStylesDemo: React.FC = () => {
 
       {/* Hero Section */}
       <section 
-        className={`${figmaClasses.heroBg} pt-44 pb-32 md:pt-72 md:pb-40 relative`}
+        className={`${figmaClasses.heroBg} pt-28 pb-20 sm:pt-36 md:pt-72 md:pb-40 relative`}
         style={{
           backgroundImage: `url(${cavernBackground})`,
           backgroundSize: 'cover',
@@ -136,21 +166,31 @@ export const FigmaStylesDemo: React.FC = () => {
         }}
       >
          
-        <div className={`${figmaClasses.container} relative z-10`}>
+        <div className={`${figmaClasses.container} relative z-10 px-4 sm:px-6 md:px-8`}>
           <div className="max-w-5xl mx-auto text-center space-y-6">
-            <h1 className={`${figmaClasses.headingHero} ${figmaClasses.animateFadeIn}`}>
+            <h1 className={`${figmaClasses.headingHero} ${figmaClasses.animateFadeIn} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight`}>
               Review Contracts 10x Faster with AI
             </h1>
             
             <div className="max-w-xl mx-auto">
-              <p className={`${figmaClasses.paragraph} ${figmaClasses.animateFadeInDelay1}`}>
+              <p className={`${figmaClasses.paragraph} ${figmaClasses.animateFadeInDelay1} text-base sm:text-lg md:text-xl text-gray-300`}>
                 Transform your legal workflow with intelligent contract analysis that extracts key clauses,
                 flags risks, and summarizes terms in minutes, not days.
               </p>
             </div>
             <div className={`flex flex-col sm:flex-row justify-center gap-4 pt-6 ${figmaClasses.animateFadeInDelay2}`}>
-              <button className={figmaClasses.buttonPrimary} onClick={() => setIsModalOpen(true)}>Sign up for Early access</button>
-              <a href="mailto:hello@aigree.com" className={figmaClasses.buttonSecondary}>Contact Us</a>
+              <button 
+                className={`${figmaClasses.buttonPrimary} w-full sm:w-auto text-base sm:text-lg px-6 py-3 sm:px-8`} 
+                onClick={() => setIsModalOpen(true)}
+              >
+                Sign up for Early access
+              </button>
+              <a 
+                href="mailto:hello@aigree.com" 
+                className={`${figmaClasses.buttonSecondary} w-full sm:w-auto text-base sm:text-lg px-6 py-3 sm:px-8`}
+              >
+                Contact Us
+              </a>
             </div>
           </div>
         </div>
@@ -160,19 +200,19 @@ export const FigmaStylesDemo: React.FC = () => {
        </section>
 
       {/* Workflow Section */}
-      <section id="workflow" className="py-28 md:py-36 bg-figma-background">
-        <div className={figmaClasses.container}>
-          <div className={`${figmaClasses.sectionTitle}`}>
-            <h2 className={figmaClasses.headingSection}>
+      <section id="workflow" className="py-16 sm:py-24 md:py-36 bg-figma-background">
+        <div className={`${figmaClasses.container} px-4 sm:px-6 md:px-8`}>
+          <div className={`${figmaClasses.sectionTitle} text-center`}>
+            <h2 className={`${figmaClasses.headingSection} text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4`}>
               From Upload to Insight In Minutes
             </h2>
-            <p className={`${figmaClasses.paragraph} mt-6 max-w-3xl mx-auto text-gray-400 leading-relaxed`}>
+            <p className={`${figmaClasses.paragraph} mt-4 sm:mt-6 max-w-3xl mx-auto text-gray-400 leading-relaxed text-base sm:text-lg`}>
               Experience the power of AI-driven contract analysis with our streamlined three-step process.
             </p>
           </div>
 
           {/* 3-Step Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mt-12 sm:mt-16 md:mt-20">
             {/* Step 1 */}
             <div 
               className={`${figmaClasses.card} group hover:scale-[1.02] transition-all duration-150 ease-out backdrop-blur-lg bg-gradient-to-br from-purple-500/15 via-purple-400/5 to-transparent border border-purple-500/20 h-full p-10 flex flex-col items-center text-center rounded-2xl shadow-xl hover:shadow-purple-500/30 hover:border-purple-500/40`}
@@ -219,17 +259,19 @@ export const FigmaStylesDemo: React.FC = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-12 md:py-10">
-        <div className={figmaClasses.container}>
-          <div className={figmaClasses.sectionTitle}>
-            <h2 className={figmaClasses.headingSection}>Features that work for your future.</h2>
-            <p className={`${figmaClasses.paragraph} mt-6`}>
+      <section id="features" className="py-12 sm:py-16 md:py-24">
+        <div className={`${figmaClasses.container} px-4 sm:px-6 md:px-8`}>
+          <div className={`${figmaClasses.sectionTitle} text-center mb-12 sm:mb-16`}>
+            <h2 className={`${figmaClasses.headingSection} text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4`}>
+              Features that work for your future.
+            </h2>
+            <p className={`${figmaClasses.paragraph} mt-4 sm:mt-6 text-base sm:text-lg text-gray-400 max-w-3xl mx-auto`}>
               Discover how Aigree's powerful AI capabilities streamline contract review and empower your team to make faster, more informed decisions.
             </p>
           </div>
 
           {/* Bento Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 p-4 md:p-6 max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-4 sm:gap-6 md:gap-8 max-w-[1400px] mx-auto">
             {/* Feature Card 1 - Risk Assessment (Spans 6 columns) */}
             <div className="group md:col-span-6 h-[400px] hover:scale-[1.01] transition-transform duration-150 ease-out">
               <div className={`${figmaClasses.card} relative h-full overflow-hidden backdrop-blur-lg bg-gradient-to-br from-purple-500/20 via-purple-400/10 to-transparent border border-purple-500/30 rounded-[2rem] shadow-xl hover:shadow-purple-500/30 p-8 flex flex-col justify-between`}>
