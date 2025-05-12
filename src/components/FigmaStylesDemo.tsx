@@ -157,7 +157,7 @@ export const FigmaStylesDemo: React.FC = () => {
 
       {/* Hero Section */}
       <section 
-        className={`${figmaClasses.heroBg} pt-28 pb-20 sm:pt-36 md:pt-72 md:pb-40 relative`}
+        className={`${figmaClasses.heroBg} pt-36 pb-16 sm:pt-32 md:pt-72 md:pb-40 relative`}
         style={{
           backgroundImage: `url(${cavernBackground})`,
           backgroundSize: 'cover',
@@ -167,8 +167,8 @@ export const FigmaStylesDemo: React.FC = () => {
       >
          
         <div className={`${figmaClasses.container} relative z-10 px-4 sm:px-6 md:px-8`}>
-          <div className="max-w-5xl mx-auto text-center space-y-6">
-            <h1 className={`${figmaClasses.headingHero} ${figmaClasses.animateFadeIn} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight`}>
+          <div className="max-w-5xl mx-auto text-center space-y-4 sm:space-y-6">
+            <h1 className={`${figmaClasses.headingHero} ${figmaClasses.animateFadeIn} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight`}>
               Review Contracts 10x Faster with AI
             </h1>
             
