@@ -11,7 +11,7 @@ import analyticsDashboard from '@/assets/new/analytics.png';
 import chatWithDocs from '@/assets/new/chat_with_docs.png';
 import automatedEfficiency from '@/assets/new/efficency.png';
 import customizableTemplates from '@/assets/new/customizable_temp.png';
-import { SignUpModal } from './SignUpModal';
+// import { SignUpModal } from './SignUpModal';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export const FigmaStylesDemo: React.FC = () => {
@@ -179,12 +179,14 @@ export const FigmaStylesDemo: React.FC = () => {
               </p>
             </div>
             <div className={`flex flex-col sm:flex-row justify-center gap-4 pt-6 ${figmaClasses.animateFadeInDelay2}`}>
-              <button 
-                className={`${figmaClasses.buttonPrimary} w-full sm:w-auto text-base sm:text-lg px-6 py-3 sm:px-8`} 
-                onClick={() => setIsModalOpen(true)}
+              <a
+                href="https://2257160e.aigree-app.pages.dev/"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className={`${figmaClasses.buttonPrimary} w-full sm:w-auto text-base sm:text-lg px-6 py-3 sm:px-8`}
               >
-                Sign up for Early access
-              </button>
+                Try it for free
+              </a>
               <a 
                 href="mailto:hello@aigree.com" 
                 className={`${figmaClasses.buttonSecondary} w-full sm:w-auto text-base sm:text-lg px-6 py-3 sm:px-8`}
@@ -388,7 +390,14 @@ export const FigmaStylesDemo: React.FC = () => {
                 Join leading organizations using AIgree to streamline their legal workflows. Our AI-powered platform helps you review contracts faster, reduce risks, and make confident decisions.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6">
-                <button className={figmaClasses.buttonPrimary} onClick={() => setIsModalOpen(true)}>Get Early Access</button>
+                <a
+                  href="https://2257160e.aigree-app.pages.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className={figmaClasses.buttonPrimary}
+                >
+                  Try it for free
+                </a>
                 {/* <button className={figmaClasses.buttonSecondary}>Schedule a Demo</button> */}
               </div>
             </div>
@@ -437,7 +446,7 @@ export const FigmaStylesDemo: React.FC = () => {
         </div>
       </footer>
       {/* Sign Up Modal */}
-      <SignUpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {/* <SignUpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
     </div>
   );
 };
